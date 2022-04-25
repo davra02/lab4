@@ -1,19 +1,14 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+/* eslint-disable react/prop-types */
 import React from 'react'
-import RestaurantDetailScreen from './RestaurantDetailScreen'
-import RestaurantsScreen from './RestaurantsScreen'
+import { View, Text } from 'react-native'
+import SystemInfo from '../../components/SystemInfo'
 
-const Stack = createNativeStackNavigator()
-
-export default function RestaurantsStack () {
+export default function RestaurantDetailScreen ({ route }) {
+  const { id } = route.params
   return (
-        <Stack.Navigator>
-            <Stack.Screen
-                name='RestaurantsScreen'
-                component={RestaurantsScreen} />
-            <Stack.Screen
-                name='RestaurantDetailScreen'
-                component={RestaurantDetailScreen} />
-        </Stack.Navigator>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>Restaurant details. Id: {id}</Text>
+            <SystemInfo />
+        </View>
   )
 }
